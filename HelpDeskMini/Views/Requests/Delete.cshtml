@@ -1,0 +1,21 @@
+﻿@model HelpDeskMini.Models.HelpRequest
+@{
+    ViewData["Title"] = "Изтриване";
+}
+<h1>Изтриване на заявка</h1>
+<div class="alert alert-warning">
+    Сигурна ли си, че искаш да изтриеш тази заявка? Това действие не може да бъде отменено.
+</div>
+<div class="card details-card mb-3">
+    <div class="card-body">
+        <h4>@Model.Title</h4>
+        <p class="mb-1"><strong>Кабинет:</strong> @Model.Room</p>
+        <p class="mb-1"><strong>Приоритет:</strong> @Model.Priority</p>
+        <p class="mb-0"><strong>Статус:</strong> @Model.Status</p>
+    </div>
+</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Да, изтрий</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Отказ</a>
+</form>

@@ -1,0 +1,54 @@
+﻿@model HelpDeskMini.Models.HelpRequest
+@{
+    ViewData["Title"] = "Нова заявка";
+}
+<h1>Нова заявка</h1>
+<p class="text-muted">Попълни информацията за техническия проблем.</p>
+
+<form asp-action="Create" method="post" class="form-panel">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Заглавие</label>
+        <input asp-for="Title" class="form-control" placeholder="Напр. Не работи компютърът" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Room" class="form-label">Кабинет</label>
+        <input asp-for="Room" class="form-control" placeholder="Напр. 203" />
+        <span asp-validation-for="Room" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Описание</label>
+        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Опиши проблема..."></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label asp-for="Priority" class="form-label">Приоритет</label>
+            <select asp-for="Priority" class="form-select">
+                <option value="">-- Избери приоритет --</option>
+                <option value="Нисък">Нисък</option>
+                <option value="Среден">Среден</option>
+                <option value="Висок">Висок</option>
+            </select>
+            <span asp-validation-for="Priority" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label asp-for="Status" class="form-label">Статус</label>
+            <select asp-for="Status" class="form-select">
+                <option value="">-- Избери статус --</option>
+                <option value="Нова">Нова</option>
+                <option value="В процес">В процес</option>
+                <option value="Решена">Решена</option>
+            </select>
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Запази заявката</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Назад</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
