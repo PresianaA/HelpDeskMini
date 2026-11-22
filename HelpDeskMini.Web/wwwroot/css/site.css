@@ -1,0 +1,5 @@
+html { font-size: 14px; }
+body { background: #f7f8fa; color: #212529; }
+.form-panel, .details-card { max-width: 850px; padding: 1.5rem; background: #fff; border: 1px solid #e5e7eb; border-radius: .75rem; }
+.description-text { white-space: pre-wrap; }
+table { background: #fff; }
